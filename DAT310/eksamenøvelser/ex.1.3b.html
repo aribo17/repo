@@ -1,0 +1,32 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Lucky number seven</title>
+        <script>
+           function gcd(a, b) {
+            while (b != 0) {
+                var t = b;
+                b = a % b;
+                a = t;
+            }
+            return a;
+        }
+        
+        </script>
+    </head>
+    <body>
+        <script>
+           var a = 0;
+            while(!(parseInt(a)>0)){
+                a = prompt("Enter the first number:");
+            }
+            
+            var b = 0;
+            while(!(parseInt(b)>0)){
+                b = prompt("Enter the second number:");
+            }
+            
+            document.write("The greatest common divisor of " + a + " and " + b + " is " + gcd(a,b));
+        </script>
+    </body>
+</html>

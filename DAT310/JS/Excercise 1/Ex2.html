@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+//            for(var i=1; i<=10; i++){
+//                var li = document.createElement('li');
+//                li.setAttribute('class', 'item')
+//                if (i ==7){
+//                    console.log("seven");
+//                } else{
+//                    console.log(i);
+//                }
+//                
+//           
+//            } 
+            
+            function gcd(numb1, numb2){
+                while (numb1 !== numb2){
+                    if(numb1 > numb2){
+                        numb1 = numb1 - numb2;
+                    } else {
+                        numb2 = numb2 - numb1;
+                    }
+                } return numb1;
+            }
+            
+            console.log(gcd(48, 18));
+            
+        </script>
+    </head>
+    <body>
+        <header></header>
+        <main></main>
+        <footer>
+          
+        </footer>
+    </body>
+</html>

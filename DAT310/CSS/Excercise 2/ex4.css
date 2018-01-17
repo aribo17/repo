@@ -1,0 +1,22 @@
+ul a{
+    
+    color: red;
+}
+
+ul li ul li{
+    color: blue;
+}
+
+p a{
+    color: green;
+}
+
+div + div a{
+    color: purple;
+    background-color: yellow;
+}
+
+ul li:first-child{
+    font-weight: bold;
+}
+

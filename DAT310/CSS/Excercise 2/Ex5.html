@@ -1,0 +1,17 @@
+Compute the specificity scores
+
+* { } 0 0 1
+li { } 0 0 1
+li:first-line { } 0 0 2
+ul li { } 0 0 2
+ul ol+li { } 
+h1 + *[rel=up] { }
+ul ol li.red { }
+li.red.level { }
+style=""
+p { }
+div p { }
+.sith
+div p.sith { }
+#sith
+body #darkside .sith p { }

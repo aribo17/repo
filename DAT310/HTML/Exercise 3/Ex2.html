@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 2 &amp; 3</title>
+        <style>
+            fieldset{
+                background-color: burlywood;
+                width: 400px;
+                ma
+                align-content: center;
+            }
+            label{
+                float: left;
+                clear: left;
+                width: 100px;
+            }
+            input{
+                display: block;
+                margin: 3px;
+            }
+            #sumbit{
+                
+            }
+        </style>
+    </head>
+    <body>
+        <form action="">
+            <fieldset>
+        
+                <legend>Personal details</legend>
+                <label for="firstname">First name</label>
+                <input type="text" name="firstname" id="firstname">
+                <br>
+                
+                <label for="lastname">Last name</label>
+                <input type="text" name="lastname" id="lastname">
+                <br>
+                
+                <label for="email">Email address</label>
+                <input type="email" name="email" id="email">
+                <br>
+                
+                <label>Gender</label>
+                <input type="radio" name="sex" value="male" id="male">
+                <label for="male">Male</label>
+                <input type="radio" name="sex" value="female" id="female">
+                <label for="female">Female</label>
+                
+
+
+            </fieldset>
+            <fieldset>
+
+                <legend>Magazines</legend>
+                <label for="stavanger">Stavanger Aftenblad</label>
+                <input type="checkbox" id="stavanger" name="stavanger" value="stavanger">
+                <br>
+                
+                <label for="teknisk">Teknisk Ukeblad</label>
+                <input type="checkbox" id="teknisk" name="teknisk" value="teknisk">
+                <br>
+                
+                <label for="sehor">Se og Hør</label>
+                <input type="checkbox" id="sehor" name="sehor" value="sehor">
+                <br>
+                
+                <label for="familien">Familien</label>
+                <input type="checkbox" id="familien" name="familen" value="familien">
+                <br>
+
+            </fieldset>
+            <fieldset>
+                <legend>Subscription</legend>
+                Period: <select name="subscription">
+                    <option value="6">6 months</option>
+                    <option value="12">12 months</option>
+                    <option value="18">18 months</option>
+                    <option value="24">24 months</option>
+                </select><br>
+            </fieldset>
+            <input type="submit" value="Subscribe" id="submit">
+        </form> 
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{% extends "checkout.html" %}
+{% block checkout %}
+<h3>Order details</h3>
+(name, shipping/billing address, etc.)
+
+<form action="" method="POST">
+    <input type="hidden" name="leveringsid" value="" />
+    <input type="text" name="leverings_addresse" value=""/>
+    <input type="text" name="fornavn" value="" />
+    <input type="text" name="etternavn" value="" />
+</form>
+
+<form action="{{ url_for('checkout') }}" method="POST">
+    <input type="hidden" name="action" value="do_1" />
+    <input type="submit" value="Place order"/>
+</form>
+{% endblock %}

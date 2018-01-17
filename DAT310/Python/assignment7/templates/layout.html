@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Otaku Life{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+                <div class="header">
+                        <a href="{{ url_for('index') }}"><h2>Otaku おたく Life</h2></a>
+                </div>
+                <div class="navbar">
+                    <nav>
+                        <ul>
+                            <li><a href="{{ url_for('index') }}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                            <li><a href="{# url_for('product') #}">Categories</a></li>
+                            <li><a href="{{ url_for('cart') }}">Cart</a></li>
+                            <li><a href="{{ url_for('login') }}">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </header>
+            <main>
+            {# NOTE: This is the file that contains your layout. All other template files should extend this one. #}
+
+
+            <!--{% if msg is defined %}<div class="placeholder message">{{ msg }}</div>{% endif %}-->
+            <!--{% if err is defined %}<div class="placeholder error">{{ err }}</div>{% endif %}-->
+
+            {% block content %}{% endblock %}
+            </main>
+            <footer>
+                <div class="contactinfo">
+                    <ul>
+                        <li>Customer service:</li>
+                        <li>+47 321 09 87654</li>
+                        <li><a href="">info@webshop.com</a></li>
+                    </ul>
+                </div>
+                <a href=""><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <p>&copy; 2017 &mdash; Ahmed Abdi</p>
+            </footer>
+    </body>
+</html>

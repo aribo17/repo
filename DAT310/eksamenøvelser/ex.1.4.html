@@ -1,0 +1,44 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Bank account</title>
+        <script>
+            function BankAccount(name, initialBalance){
+                this.name = name;
+                this.initialBalance = initialBalance;
+                this.deposit = deposit;
+                this.withdrawal = withdrawal;
+                
+                function withdrawal(amount){
+                    if(this.initialBalance> amount){
+                        this.initialBalance -= amount;
+                    } else{
+                        console.log("Insufficient funds!");
+                    }
+                    
+                };
+                
+                function deposit(amount){
+                    this.initialBalance += amount;
+                };
+            };
+                
+            
+                
+            
+        </script>
+    </head>
+    <body>
+        <script>
+            var myAccount = new BankAccount("Ahmed", 2000);
+            console.log(myAccount.initialBalance);
+            myAccount.deposit(200);   
+            console.log(myAccount.initialBalance);
+            myAccount.withdrawal(1000);
+            console.log(myAccount.initialBalance);
+            myAccount.withdrawal(2000);
+            console.log(myAccount.initialBalance);
+            
+        </script>
+    </body>
+</html>

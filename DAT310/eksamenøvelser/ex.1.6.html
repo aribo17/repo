@@ -1,0 +1,77 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Bank account</title>
+        <script>
+            function BankAccount(name, initialBalance){
+                this.name = name;
+                this.initialBalance = initialBalance;
+                this.deposit = deposit;
+                this.withdrawal = withdrawal;
+                this.logTransaction = [];
+                this.printLogTransaction = printLogTransaction;
+                
+                
+                function withdrawal(amount){
+                    var oldBalance = this.initialBalance;
+                    var success = 0;
+                    if(this.initialBalance> amount){
+                        this.initialBalance -= amount;
+                        success = 1;
+                    } else{
+                        console.log("Insufficient funds!");
+                    }
+                    this.logTransaction.push({
+                        transaction:"whitdraw",
+                        amount: amount,
+                        date: new Date(),
+                        oldBalance: oldBalance,
+                        newBalance: this.initialBalance,
+                        success: success
+                    });
+                    
+                };
+                
+                function deposit(amount){
+                    var oldBalance = this.initialBalance;
+                    this.initialBalance += amount;
+                    this.logTransaction.push({
+                        transaction:"deposit",
+                        amount: amount,
+                        date: new Date(),
+                        oldBalance: oldBalance,
+                        newBalance: this.initialBalance,
+                        success: 1
+                    });
+                };
+                
+                function printLogTransaction(){
+                    for(var i=0; i<this.logTransaction.length; i++){
+                        console.log(this.logTransaction[i].date 
+                        + "\t" + this.logTransaction[i].transaction
+                        + "\t" + this.logTransaction[i].amount
+                        + "\t" + this.logTransaction[i].success
+                        + "\t" + this.logTransaction[i].oldBalance
+                        + "\t" + this.logTransaction[i].newBalance);
+                    }
+                }
+                
+            
+            };
+                
+            
+                
+            
+        </script>
+    </head>
+    <body>
+        <script>
+            var myAccount = new BankAccount("Ahmed", 2000);
+            myAccount.deposit(200);   
+            myAccount.withdrawal(1000);
+            myAccount.withdrawal(2000);
+            myAccount.printLogTransaction();
+     
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #4: Formatting text</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <form name="form">
+        <select name="font_family" id="font_family">
+            <option value="Arial" selected>Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+        </select>
+        <select name="font_size" id="font_size">
+            <option value="8pt">8pt</option>
+            <option value="10pt">10pt</option>
+            <option value="12pt" selected>12pt</option>
+            <option value="14pt">14pt</option>
+            <option value="16pt">16pt</option>
+        </select>
+        <label>Italic <input type="checkbox" name="font_italic" id="font_italic"></label>
+        <label>Bold <input type="checkbox" name="font_bold" id="font_bold"></label>
+        <label>Underline <input type="checkbox" name="font_underline" id="font_underline"></label>
+    </form>
+
+    <div id="text">The quick brown fox jumps over the lazy dog</div>
+    
+    <article>
+        <h2>What is lorem ipsum?</h2>
+        <div id="p1_show" class="showlink"><a href="#">Show</a></div>
+        <div id="p1_text" class="text">
+            <p>Lorem Ipsum</p>
+            <p><a href="#">Hide</a></p>
+        </div>
+    </article>
+
+    <article>
+        <h2>Why do we use it?</h2>
+        <div id="p2_show" class="showlink"><a href="#">Show</a></div>
+        <div id="p2_text" class="text">
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+                at its la
+        </div>
+    </article>
+
+    <article>
+        <h2>Where does it come from?</h2>
+        <div id="p3_show" class="showlink"><a href="#">Show</a></div>
+        <div id="p3_text" class="text">
+            <p>Contrary to popular bcomes from a line in
+                section 1.10.32.</p>
+            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+                1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact
+                original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+            <p><a href="#">Hide</a></p>
+        </div>
+    </article>
+</body>
+</html>

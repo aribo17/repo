@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+
+        <table>
+           <thead>
+                <tr>
+                    <th>Item</th>
+                    <th colspan="2" class="tableright">Item price</th>
+                    <th class="tableright">Quantity</th>
+                    <th class="tableright">Price</th>
+                </tr>
+            </thead>
+
+           <tfoot>
+
+                <tr id="totalrow">
+                    <td>Total</td>
+                    <td class="tableright" colspan="4"> <h4>&#36;{{ totalsum }}</h4></td>
+                </tr>
+           </tfoot>
+           <tbody>
+                {% for k, i in productInCart.items() %}
+               <tr>
+                    <td>
+                        <img src="/static/images/{{ productInCart[k]['product_img'] }}">
+                    </td>
+                    <td>
+                        <h4>{{ productInCart[k]['product_name'] }}</h4>
+                    </td>
+                    <td class="tableright"><h4>&#36;{{ productInCart[k]['product_discount'] }}</h4></td>
+                    <td class="tableright"><h4> {{ qtIncart[k] }}
+                        <form style="display: inline-box;" action="{{url_for('mod')}}" method="POST">
+                            <input type="hidden" name="product_id" value="{{ productInCart[k]['product_id'] }}" />
+                            <input type="number" name="qt" value="{{ qtIncart[k] }}" min="1" max="100" >
+                            <button type="submit" value="Modify"><i class="fa fa-pencil"></i></i></button>
+
+                        </form>
+                        <form action="{{url_for('remove')}}" method="GET">
+                            <input type="hidden" name="product_id" value="{{ productInCart[k]['product_id'] }}" />
+                            <button type="submit" value="remove"><i class="fa fa-trash-o"></i></button>
+                        </form>
+                    <td class="tableright"><h4>&#36;{{ productInCart[k]['product_discount'] *  qtIncart[k] }}</h4></td>
+                </tr>
+               {% endfor %}
+           </tbody>
+        </table>
+        <br />
+        <br />
+        <form action="{{ url_for('checkout') }}" method="POST">
+            <input type="submit" value="Proceed to checkout"/>
+        </form>
+
+</div>
+
+{% endblock %}

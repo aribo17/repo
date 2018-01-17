@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #2: Changing colors</title>
+    <style>
+        #mydiv {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        
+        function randomColor(){
+            var colorval = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+            }
+        }
+       
+        function changeColor(){
+            var color = this.style.backgroundColor;
+            var newColor;
+            switch(color){
+                case "red":
+                    newColor = 
+            }
+        }
+         
+        function init(){
+            var div = document.getElementById("mydiv");
+            div.style.backgroundColor = "blue";
+            div.onclick = changeColor;
+        }
+        
+        window.onload = init;
+    </script>
+</head>
+<body>
+<div id="mydiv"></div>
+</body>
+</html>

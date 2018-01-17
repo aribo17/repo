@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #2: Changing colors</title>
+    <style>
+      
+    </style>
+    <script>
+        function changeImage(){
+            var s = document.getElementById("country"); // or this
+            var img = document.getElementById("img");
+            img.src = "images/" + s.options
+            //alert(s.options[s.selectedIndex].value;)
+        }
+    </script>
+</head>
+<body>
+    <form name="form">
+        <select name="country" id="country" onchange="changeImage();">
+            <option value="no_image.png">Select</option>
+            <option value="flag_NO">Norway</option>
+            <option value="flag_SE">Sweden</option>
+            <option value="flag_DE">Denmark</option>
+            <option value="flag_IL">Iceland</option>
+        </select>
+    </form>
+    <img src="">
+</body>
+</html>
