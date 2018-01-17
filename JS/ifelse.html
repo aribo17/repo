@@ -1,0 +1,36 @@
+<html>
+
+    <head>
+        <title>If / Else</title>
+    </head>
+    
+    <body>
+        
+        <h1>If / Else</h1>
+        
+        <div id="box1"></div>
+    
+        <script type="text/javascript">
+        
+            var age = 30;
+            
+            if(age <= 30) {
+                document.getElementById("box1").innerHTML = "You're just a youngin'";
+                
+                document.getElementById("box1").style.color = "red";
+            }else if(age >= 50) {
+                document.getElementById("box1").innerHTML = "You're older than 50";
+                
+                document.getElementById("box1").style.color = "blue";
+                
+            } else {
+                document.getElementById("box1").innerHTML = "You must be btween 30 and 50 years old";
+                
+                document.getElementById("box1").style.color = "green";
+            }
+        
+        </script>
+        
+    </body>
+    
+</html>
