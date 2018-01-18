@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+        <h4>Your order history</h4>
+        <form id="form1" runat="server">
+            <div id="wrapper">
+                <table id="datatable">
+                    <thead>
+                        <tr class="header">
+                            <th>Bestillingsid</th>
+                            <th>Fornavn</th>
+                            <th>Etternavn</th>
+                        </tr>
+                    </thead>
+                  <tbody>
+                    {% for order in bestilling %}
+                    <tr>
+                        <td><a style="text-decoration:none;" href="/bestilling/{{ order[0] }}">{{ order[0]}}</a></td>
+                        <td> <a style="text-decoration:none;" href="/bestilling/{{ order[0] }}">{{ order[1]}}</a></td>
+                        <td> <a style="text-decoration:none;" href="/bestilling/{{ order[0] }}">{{ order[2]}}</a></td>
+                    </tr>
+                    {% endfor %}
+
+                  </tbody>
+                </table>
+            </div>
+        </form>
+
+        {% if 'admin' in session %}
+            <a href="{{ url_for('dashboard') }}"><button class="btn btn-primary">Admin Dashboard</button></a>
+        {% endif %}
+{% endblock %}

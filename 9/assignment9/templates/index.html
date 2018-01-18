@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{# Attributtene fra databasen: produkt[0]:produktid, produkt[1]:produktnavn, produkt[2]:beskrivelse, produkt[3]:standardpris, produkt[4]:tilbudspris, produkt[5]:avslag, produkt[6]:produktbilde #}
+    <br>
+    <div id="banner">
+        <h1 style="text-align:center;">Winter Sales 20-70%</i></h1>
+        <br>
+        <p style="text-align:center;">Check out our season sales!</p>
+    </div>
+    <br>
+
+    <div id="wrapper">
+        {% for produkt in produkter %}
+        <article>
+            <div class="product">
+                <a href="/product/{{ produkt[0] }}"><img src="static/images/{{ produkt[7] }}" alt="{{ produkt[1] }}"/></a>
+                <a href="/product/{{ produkt[0] }}"><h3>{{ produkt[1] }}</h3></a>
+
+                <div class="pricetag">
+                    <p><span>&#36;{{ produkt[3] }}</span> &#36;{{ produkt[5] }}</p>
+                </div>
+
+                <div class="discount">
+                    <p>-{{ produkt[4] }}&#37;</p>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+
+{% endblock %}

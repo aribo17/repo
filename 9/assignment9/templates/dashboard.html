@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+                <h1>Order traffic</h1>
+                <!-- bar chart canvas element -->
+                <canvas id="myChart" width="600" height="400"></canvas>
+                <p>The chart is displaying orders by day.</p>
+                <br><br><br><br>
+                <canvas id="meSecondChart" width="600" height="400"></canvas>
+                <p>The chart is displaying production sales.</p>
+                <br><br><br><br>
+                <script>
+                    // define the chart data
+                    var chartData = {
+                      labels : [{% for item in labels %}
+                                 "{{item}}",
+                                {% endfor %}],
+                      datasets : [{
+                          label: '{{ legend }}',
+                          fill: true,
+                          lineTension: 0.1,
+                          backgroundColor: "rgba(158,158,158,0.3)",
+                          borderColor: "rgba(55,51,46,0.44)",
+                          borderCapStyle: 'butt',
+                          borderDash: [],
+                          borderDashOffset: 0.0,
+                          borderJoinStyle: 'miter',
+                          pointBorderColor: "rgba(5,5,5,0.52)",
+                          pointBackgroundColor: "#fff",
+                          pointBorderWidth: 1,
+                          pointHoverRadius: 5,
+                          pointHoverBackgroundColor: "rgba(158,158,158,1)",
+                          pointHoverBorderColor: "rgba(220,220,220,1)",
+                          pointHoverBorderWidth: 2,
+                          pointRadius: 1,
+                          pointHitRadius: 10,
+                          data : [{% for item in values %}
+                                    {{item}},
+                                  {% endfor %}],
+                          spanGaps: false
+                      }]
+                    }
+
+                    // get chart canvas
+                    var ctx = document.getElementById("myChart").getContext("2d");
+
+                    // create the chart using the chart canvas
+                    var myChart = new Chart(ctx, {
+                      type: 'line',
+                      data: chartData,
+                      options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+
+
+
+                    var ctx = document.getElementById("meSecondChart").getContext('2d');
+                    var mySecondChart = new Chart(ctx, {
+                      type: 'pie',
+                      data: {
+                        labels: [{% for sale in sales %}
+                                 "{{sale[1]}}",
+                                {% endfor %}],
+                        datasets: [{
+                          backgroundColor: [
+                            "#2ecc71",
+                            "#3498db",
+                            "#95a5a6",
+                            "#9b59b6",
+                            "#f1c40f",
+                            "#e74c3c",
+                            "#34495e",
+                            "#634952"
+                          ],
+                          data: [{% for sale in sales %}
+                                    {{sale[3]}},
+                                  {% endfor %}]
+                        }]
+                      }
+                    });
+                </script>
+
+                <div id="wrapper">
+
+                    <h2>Best selling products</h2>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr class="header">
+                                <th>Sold Quantities</th>
+                                <th>Productid</th>
+                                <th>Productname</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                      <tbody>
+                        {% for sale in sales %}
+                        <tr>
+                            <td>{{ sale[3]}}</td>
+                            <td>{{ sale[0] }}</td>
+                            <td>{{ sale[1] }}</td>
+                            <td>{{ sale[2] }}</td>
+                        </tr>
+                        {% endfor %}
+
+                      </tbody>
+                    </table>
+                    <br><br><br>
+                    <a href="/newproduct"><button class="btn btn-primary">+Add a new product</button></a>
+                    <a href="/order"><button class="btn btn-primary">All orders</button></a>
+                    <a href="/categories"><button class="btn btn-primary">All products in store</button></a>
+                </div>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div style="margin-top:10px;" class="container">
+
+        <h2>Customer Details</h2>
+        <table class="table table-hover table-striped">
+            <tbody class="hogretableinput">
+                <tr>
+                    <td>Name:<span>{{info[0]}}</span> <span>{{info[1]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Email:<span>{{info[2]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Order date:<span>{{info[4]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Billing addresse:<span>{{info[3]}}</span></td>
+                </tr>
+                <tr>
+                    <td>Shipping addresse:<span>{{info[3]}}</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <table class="table table-hover table-condensed">
+           <thead>
+                <tr>
+                    <th>Item</th>
+                    <th colspan="2" class="tableright">Item price</th>
+                    <th class="tableright">Quantity</th>
+                    <th class="tableright">Price</th>
+                </tr>
+            </thead>
+
+           <tfoot>
+
+                <tr id="totalrow">
+                    <td>Total</td>
+                    <td class="tableright" colspan="4">&#36;{{ totalsum }}</td>
+                </tr>
+           </tfoot>
+           <tbody>
+           {# 0:id 1:produktnavn 2:produktbilde 3:pris 4:kvanitet 5:produktid 6:fornavn 7:etternavn 8: email 9:addresse 10:dato #}
+           {% for order in orders %}
+
+               <tr>
+                    <td>
+                        <img src="/static/images/{{ order[2] }}">
+                    </td>
+                    <td>
+                        <a style="text-decoration:none; color:black;" href="/product/{{order[5]}}">{{ order[1] }}</a>
+                    </td>
+                    <td class="tableright">&#36;{{ order[3] }}</td>
+                    <td class="tableright"> {{ order[4] }}</td>
+                    <td class="tableright">&#36;{{ order[3] *  order[4] }}</td>
+                </tr>
+            {{order[6]}}
+            {% endfor %}
+           </tbody>
+        </table>
+
+        <br>
+        <h4><a href="{{ url_for('order') }}"><button class="btn btn-primary">Go back to list of Orders</button></a></h4>
+
+    </div>
+{% endblock %}

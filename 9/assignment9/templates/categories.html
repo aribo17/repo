@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+            <div id="wrapper">
+                <a href="/newproduct"><button class="btn btn-primary">+Add a new product</button></a>
+                <br><br><br>
+                <table id="datatable" class="table table-striped table-hover">
+                    <thead>
+                        <tr class="header">
+                            <th>ProductID</th>
+                            <th>Productname</th>
+                            <th>OriginalPrice</th>
+                            <th>Discount</th>
+                            <th>CurrentPrice</th>
+                            <th></th>
+                            <th>Console</th>
+                            <th>Edit/Remove</th>
+                        </tr>
+                    </thead>
+                  <tbody>
+                    {% for produkt in produkt %}
+                    <tr>
+                        <td>{{ produkt[0]}}</td>
+                        <a href="/product/{{ produkt[0]}}"><td>{{ produkt[1] }}</td></a>
+                        <td>{{ produkt[3] }}</td>
+                        <td>{{ produkt[4] }}</td>
+                        <td>{{ produkt[5] }}</td>
+                        <td><img src="static/images/{{ produkt[7] }}" alt="{{ produkt[1] }}"/></td>
+                        <td>{{ produkt[8] }}</td>
+                        <td>
+                            <a href="/editproduct/{{produkt[0]}}"><button class="btn btn-info">Edit</button></a>
+                            <a href="/removeproduct/{{produkt[0]}}"><button class="btn btn-danger">Remove</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                  </tbody>
+                </table>
+
+            </div>
+
+{% endblock %}

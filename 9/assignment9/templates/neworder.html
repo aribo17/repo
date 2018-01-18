@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+
+        <form action="/addneworder" method="post">
+            <div class="form-group col-sm-6">
+                <br>
+                <label for="product-name">Brukernavn *</label>
+                <br>
+                <input type="text" class="form-control input-lg" id="product-name" name="brukernavn" value="" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="product-description">Leveringstid *</label>
+                <br>
+                <input type="number" class="form-control input-lg" id="product-description" name="leveringstid" value="" required>
+            </div>
+             <div class="form-group col-sm-6">
+                <label for="standard-price">Bestillingstatus *</label>
+                 <br>
+                <input type="number" class="form-control input-lg" id="standard-price" name="bestillingstatus" value="" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="discount-price">BestillingID *</label>
+                <br>
+                <input type="number" class="form-control input-lg" id="discount-price" name="bestillingid" value="" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="discount-percentage">ProduktID % *</label>
+                <br>
+                <input type="number" class="form-control input-lg" id="discount-percentage" name="produktid" value="" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="product-image">Kvantitet *</label>
+                <br>
+                <input type="number" class="form-control input-lg" id="product-image" name="kvantitet" value="" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <br>
+                <input type="submit" class="form-control input-lg"  value="register">
+            </div>
+        </form>
+
+{% endblock %}

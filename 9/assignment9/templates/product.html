@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %} | Product #{{ product.product_id }} {% endblock %}
+{% block content %}
+{# TODO: Show product page #}
+
+
+    <div id="productcontent">
+            <article id="productimage">
+                <img src="/static/images/{{product.product_img}}">
+                <div id="discount">
+                    <p>-{{product.product_discount}}&#37;</p>
+                </div>
+            </article>
+
+            <article id="productinfo">
+                <h3>{{product.product_name}}</h3></a>
+                <p>{{product.product_info}}</p>
+                <div id="pricetag">
+                    <p><span>&#36;{{product.product_price}}</span> &#36;{{product.product_currentprice}}</p>
+                </div>
+                <div class="cartbutton">
+                    <form action="{{url_for('add_to_cart')}}" method="POST">
+                        <input type="hidden" name="product_id" value="{{ product.product_id }}" />
+                        <label>Quantity: <input type="number" name="qt" maxlength="2" value="1"  min="1" max="99"></label>
+                        <input type="submit" value="Add to cart"/>
+                    </form>
+                </div>
+
+            </article>
+    </div>
+
+    <br />
+    <br />
+
+</div>
+
+{% endblock %}
