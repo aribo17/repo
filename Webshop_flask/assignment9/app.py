@@ -23,7 +23,7 @@ app.config["DATABASE_DB"] = "otakulife"
 app.config["DATABASE_HOST"] = "localhost"
 
 
-#############################################
+
 @app.route('/addnewproduct', methods=['GET','POST'])
 def addnewproduct():
     db = get_db()
@@ -55,6 +55,7 @@ def addnewproduct():
     cur.close()
     return redirect(url_for("categories"))
 
+
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -64,10 +65,6 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
-
-
-
-##############################################
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if 'username' in session:
@@ -107,8 +104,6 @@ def logout():
     session.pop('admin', None)
     flash("You have been successfully logged out", "success")
     return redirect(url_for('login'))
-
-
 
 
 @app.route('/categories')
@@ -177,6 +172,7 @@ def editproduct(produktid):
             cur.close()
     return render_template("editproduct.html", produkt=produkt)
 
+
 @app.route('/removeproduct/<int:produktid>', methods=['GET','POST'])
 def removeproduct(produktid):
     if not "admin" in session:
@@ -197,7 +193,6 @@ def removeproduct(produktid):
         cur.close()
 
 
-
 @app.route('/order')
 def order():
     if not "admin" in session:
@@ -215,6 +210,7 @@ def order():
         return render_template("error.html", msg="Error querying data")
     finally:
         cur.close()
+
 
 def get_contactinfo(order_id):
     db = get_db()
@@ -284,8 +280,6 @@ def newproduct():
     return render_template("newproduct.html")
 
 
-
-
 @app.route('/addneworder', methods=['GET', 'POST'])
 def bestillingtabell():
     db = get_db()
@@ -339,9 +333,6 @@ def user():
         return redirect('login')
 
 
-
-
-
 def get_bestsale():
     db = get_db()
     cur = db.cursor()
@@ -351,6 +342,7 @@ def get_bestsale():
     result = cur.fetchall()
     cur.close()
     return result
+
 
 @app.route('/dashboard')
 def dashboard():
@@ -373,7 +365,6 @@ def dashboard():
     sales_info = get_bestsale()
     cur.close()
     return render_template("dashboard.html", values=values, labels=labels, legend=legend, sales=sales_info)
-########################################
 
 
 def get_db():
@@ -392,11 +383,6 @@ def teardown_db(error):
         db.close()
 
 
-#############################################################################################
-
-
-
-#######################################################################################
 @app.route("/")
 def index():
     """Index page that shows a list of products"""
